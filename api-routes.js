@@ -8,5 +8,15 @@ router.get('/', function (req, res) {
         message: 'Welcome to RESTHub crafted with love!'
     });
 });
+
+// Import contact controller
+var eventController = require('./eventController');
+// Contact routes
+router.route('/events')
+    .get(eventController.index)
+
+router.route('/events/:event_id')
+    .get(eventController.view)
+
 // Export API routes
 module.exports = router;
