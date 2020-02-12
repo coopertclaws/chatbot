@@ -18,5 +18,8 @@ router.route('/events')
 router.route('/events/:event_id')
     .get(eventController.view)
 
+router.route('/eventsearch/:searchcriteria')
+    .get(eventController.eventsearch)
+
 // Export API routes
 module.exports = router;

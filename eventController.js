@@ -24,7 +24,18 @@ exports.view = function (req, res) {
             res.send(err);
         res.json({
             message: 'Event details loading..',
-            data: event
+            data: event.eventDesc
+        });
+    });
+};
+// Handle event search
+exports.eventsearch = function (req, res) {
+    Event.findOne({ 'postcodes': req.params.searchcriteria}, function (err, event) {
+        if (err)
+            res.send(err);
+        res.json({
+            message: 'Searching...',
+            data: event.eventDesc
         });
     });
 };
